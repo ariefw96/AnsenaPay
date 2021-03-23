@@ -12,10 +12,39 @@ import {
 import { vw, vh } from 'react-native-expo-viewport-units'
 import { useSelector, connect } from 'react-redux'
 import { logout } from './../../utils/redux/action/authAction'
+import { useSocket } from './../../utils/context/SocketProvider'
+import PushNotification from 'react-native-push-notification'
+import {showNotification} from './../../notification'
+import { } from './../'
 
 
 const Home = ({ navigation, logout }) => {
     const auth = useSelector((state) => state.authReducer);
+    const socket = useSocket()
+    const channel = 'notif'
+
+
+    useEffect(() => {
+        PushNotification.createChannel(
+            {
+                channelId: 'notif',
+                channelName: 'My Notification channel',
+                channelDescription: 'A channel to categories your notification',
+                soundName: 'default',
+                importance: 4,
+                vibrate: true,
+            },
+            (created) => console.log(`create channel returned '${created}'`),
+        );
+
+        PushNotification.getChannels((channel_ids) => {
+            console.log(channel_ids);
+        });
+    }, [])
+
+    const pressNotif = () =>{
+        showNotification('Notification', 'aaa', channel);
+    }
 
     const promptLogout = () => {
         Alert.alert(
@@ -64,7 +93,7 @@ const Home = ({ navigation, logout }) => {
                             style={{
                                 fontWeight: 'bold',
                                 fontSize: 20,
-                                alignSelf:'center'
+                                alignSelf: 'center'
                             }}
                         >Welcome Back !</Text>
                         <Text
@@ -116,6 +145,7 @@ const Home = ({ navigation, logout }) => {
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={styles.button}
+                            onPress={pressNotif}
                         >
                             <View
                                 style={{

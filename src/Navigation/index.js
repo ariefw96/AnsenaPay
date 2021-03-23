@@ -10,39 +10,43 @@ import {
     EditScreen
 } from '../screen';
 
+import { SocketProvider } from './../utils/context/SocketProvider'
 
 const Stack = createStackNavigator();
 
 const Navigation = ({ navigation }) => {
+    const user_id = useSelector((state) => state.authReducer.id);
     return (
-        <Stack.Navigator>
-            <Stack.Screen
-                initialRouteName="Login"
-                name="Login"
-                component={LoginScreen}
-                options={{ headerShown: false }}
-            />
-            <Stack.Screen
-                name="Register"
-                component={RegisterScreen}
-                options={{ headerShown: false }}
-            />
-            <Stack.Screen
-                name="Home"
-                component={HomeScreen}
-                options={{ headerShown: false }}
-            />
-            <Stack.Screen
-                name="Profile"
-                component={ProfileScreen}
-                options={{ headerShown: false }}
-            />
-            <Stack.Screen
-                name="Edit"
-                component={EditScreen}
-                options={{ headerShown: false }}
-            />
-        </Stack.Navigator>
+        <SocketProvider id={user_id}>
+            <Stack.Navigator>
+                <Stack.Screen
+                    initialRouteName="Login"
+                    name="Login"
+                    component={LoginScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Register"
+                    component={RegisterScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Home"
+                    component={HomeScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Profile"
+                    component={ProfileScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Edit"
+                    component={EditScreen}
+                    options={{ headerShown: false }}
+                />
+            </Stack.Navigator>
+        </SocketProvider>
     );
 };
 
