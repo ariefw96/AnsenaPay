@@ -3,6 +3,7 @@ import RegisterScreen from './Auth/Register'
 import HomeScreen from './Home'
 import ProfileScreen from './Profile'
 import EditScreen from './EditProfile'
+import SplashScreen from './Splash'
 
 
 
@@ -12,6 +13,7 @@ export {
     RegisterScreen,
     HomeScreen,
     ProfileScreen,
-    EditScreen
+    EditScreen,
+    SplashScreen
 
 }

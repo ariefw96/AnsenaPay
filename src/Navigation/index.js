@@ -7,7 +7,8 @@ import {
     LoginScreen,
     ProfileScreen,
     RegisterScreen,
-    EditScreen
+    EditScreen,
+    SplashScreen
 } from '../screen';
 
 import { SocketProvider } from './../utils/context/SocketProvider'
@@ -20,7 +21,12 @@ const Navigation = ({ navigation }) => {
         <SocketProvider id={user_id}>
             <Stack.Navigator>
                 <Stack.Screen
-                    initialRouteName="Login"
+                    initialRouteName="Splash"
+                    name="Spash"
+                    component={SplashScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
                     name="Login"
                     component={LoginScreen}
                     options={{ headerShown: false }}

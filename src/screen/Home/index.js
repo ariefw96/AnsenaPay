@@ -43,7 +43,7 @@ const Home = ({ navigation, logout }) => {
     }, [])
 
     const pressNotif = () =>{
-        showNotification('Notification', 'aaa', channel);
+        showNotification('Notification', 'This is notification from React-Native', channel);
     }
 
     const promptLogout = () => {
