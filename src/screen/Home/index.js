@@ -155,7 +155,9 @@ const Home = ({ navigation, logout }) => {
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={styles.button}
-                            onPress={pressNotif}
+                            onPress={
+                                () => {navigation.navigate('ListJob')}
+                            }
                         >
                             <View
                                 style={{
@@ -165,7 +167,7 @@ const Home = ({ navigation, logout }) => {
                             >
                                 <Text
                                     style={styles.textMenu}
-                                >Menu 2</Text>
+                                >List Job</Text>
                                 <Image
                                     source={{ uri: 'https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-right-01-512.png' }}
                                     style={styles.propImage}
@@ -183,7 +185,7 @@ const Home = ({ navigation, logout }) => {
                             >
                                 <Text
                                     style={styles.textMenu}
-                                >Menu 3</Text>
+                                >T B A</Text>
                                 <Image
                                     source={{ uri: 'https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-right-01-512.png' }}
                                     style={styles.propImage}

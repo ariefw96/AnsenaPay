@@ -6,6 +6,7 @@ import EditScreen from './EditProfile'
 import SplashScreen from './Splash'
 import ListUserScreen from './ListUser'
 import SendJobScreen from './SendJob'
+import ListJobScreen from './ListJob'
 
 
 
@@ -18,6 +19,7 @@ export {
     EditScreen,
     SplashScreen,
     ListUserScreen,
-    SendJobScreen
+    SendJobScreen,
+    ListJobScreen
 
 }

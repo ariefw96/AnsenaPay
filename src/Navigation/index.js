@@ -10,7 +10,8 @@ import {
     EditScreen,
     SplashScreen,
     ListUserScreen,
-    SendJobScreen
+    SendJobScreen,
+    ListJobScreen
 } from '../screen';
 
 import { SocketProvider } from './../utils/context/SocketProvider'
@@ -62,7 +63,11 @@ const Navigation = ({ navigation }) => {
                     name="SendJob"
                     component={SendJobScreen}
                     options={{ headerShown: false }}
-                />
+                /><Stack.Screen
+                name="ListJob"
+                component={ListJobScreen}
+                options={{ headerShown: false }}
+            />
             </Stack.Navigator>
         </SocketProvider>
     );

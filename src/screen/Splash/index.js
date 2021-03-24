@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { View, Image, StyleSheet, Text, ActivityIndicator } from 'react-native';
 import { vw, vh } from 'react-native-expo-viewport-units'
+import {useSelector} from 'react-redux'
 
 const Splash = ({ navigation }) => {
     useEffect(() => {
         setTimeout(() => {
-            navigation.replace('Login');
+            navigation.replace('Login')
         }, 1500);
     }, [navigation]);
     return (

@@ -8,7 +8,8 @@ import {
     TouchableOpacity,
     Image,
     ActivityIndicator,
-    ToastAndroid
+    ToastAndroid,
+    KeyboardAvoidingView
 } from 'react-native'
 import axios from 'axios'
 import { vw, vh } from 'react-native-expo-viewport-units'
@@ -34,7 +35,7 @@ const SendJob = ({ navigation, route }) => {
             job_message: message
         }
 
-        axios.post(API_URL + '/job/add')
+        axios.post(API_URL + '/job/add', data)
             .then(({ data }) => {
                 ToastAndroid.show('Sukses mengirim pesan.', ToastAndroid.SHORT, ToastAndroid.CENTER);
                 navigation.replace('ListUser')
@@ -45,7 +46,7 @@ const SendJob = ({ navigation, route }) => {
 
     return (
         <>
-            <View style={{ flex: 1, flexDirection: 'column', backgroundColor: '#ebeff5' }}>
+            <ScrollView style={{ flex: 1, flexDirection: 'column', backgroundColor: '#ebeff5' }}>
                 <View
                     style={styles.headContent}
                 >
@@ -92,33 +93,37 @@ const SendJob = ({ navigation, route }) => {
                                 fontSize: 18
                             }}
                         >Title</Text>
-                        <TextInput
-                            placeholder='Enter title of the Job'
-                            style={{
-                                width: vw(90),
-                                borderWidth: 0.5,
-                                marginBottom: vw(2),
-                                paddingLeft: vw(4),
-                            }}
-                            onChangeText={(text) => setTitle(text)}
-                        />
+                        <KeyboardAvoidingView>
+                            <TextInput
+                                placeholder='Enter title of the Job'
+                                style={{
+                                    width: vw(90),
+                                    borderWidth: 0.5,
+                                    marginBottom: vw(2),
+                                    paddingLeft: vw(4),
+                                }}
+                                onChangeText={(text) => setTitle(text)}
+                            />
+                        </KeyboardAvoidingView>
                         <Text
                             style={{
                                 fontWeight: 'bold',
                                 fontSize: 18
                             }}
                         >Message</Text>
-                        <TextInput
-                            editable
-                            placeholder='Enter Message'
-                            style={{
-                                width: vw(90),
-                                borderWidth: 0.5,
-                                paddingLeft: vw(4),
+                        <KeyboardAvoidingView>
+                            <TextInput
+                                editable
+                                placeholder='Enter Message'
+                                style={{
+                                    width: vw(90),
+                                    borderWidth: 0.5,
+                                    paddingLeft: vw(4),
 
-                            }}
-                            onChangeText={(text) => setMessage(text)}
-                        />
+                                }}
+                                onChangeText={(text) => setMessage(text)}
+                            />
+                        </KeyboardAvoidingView>
                         <TouchableOpacity
                             style={styles.button}
                             onPress={
@@ -133,7 +138,7 @@ const SendJob = ({ navigation, route }) => {
                         </TouchableOpacity>
                     </View>
                 </View>
-            </View>
+            </ScrollView>
         </>
     )
 }
@@ -146,7 +151,7 @@ const styles = StyleSheet.create({
         alignContent: 'center'
     },
     content: {
-        minHeight: vh(70),
+        minHeight: vh(69),
         backgroundColor: 'white',
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
