@@ -29,7 +29,7 @@ const Register = ({ navigation }) => {
 
         axios.post(API_URL + '/auth/signup', data)
             .then(({ data }) => {
-                ToastAndroid.show('Sukses login', ToastAndroid.SHORT, ToastAndroid.CENTER);
+                ToastAndroid.show('Sukses Register', ToastAndroid.SHORT, ToastAndroid.CENTER);
                 navigation.navigate('Login')
             }).catch(({ response }) => {
                 if (response.status == 401) {

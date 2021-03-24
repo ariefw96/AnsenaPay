@@ -70,8 +70,7 @@ const Profile = ({ navigation }) => {
                 >
                     <View
                         style={{
-                            marginTop: vw(5),
-                            marginBottom: vw(5)
+                            marginVertical:vw(5),
                         }}
                     >
                         <Text
@@ -174,12 +173,11 @@ const styles = StyleSheet.create({
     },
     textMenu: {
         paddingVertical: vw(5),
-        paddingLeft: vw(5),
         fontSize: 20,
         fontWeight: 'bold'
     },
     textProfile: {
-        paddingLeft: vw(5),
+        paddingLeft: vw(6),
         fontSize: 16,
         fontWeight: 'bold',
         width: vw(80)

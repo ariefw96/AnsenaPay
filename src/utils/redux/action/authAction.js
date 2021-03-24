@@ -1,11 +1,12 @@
 import * as actionTypes from '../actionTypes';
 
-export const login = (id, email) => {
+export const login = (id, email, name) => {
   return {
     type: actionTypes.LOGIN,
     payload: {
       id: id,
-      email:email
+      email:email,
+      name:name
     },
   };
 };

@@ -4,6 +4,8 @@ import HomeScreen from './Home'
 import ProfileScreen from './Profile'
 import EditScreen from './EditProfile'
 import SplashScreen from './Splash'
+import ListUserScreen from './ListUser'
+import SendJobScreen from './SendJob'
 
 
 
@@ -14,6 +16,8 @@ export {
     HomeScreen,
     ProfileScreen,
     EditScreen,
-    SplashScreen
+    SplashScreen,
+    ListUserScreen,
+    SendJobScreen
 
 }

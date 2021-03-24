@@ -145,7 +145,6 @@ const styles = StyleSheet.create({
     },
     textMenu: {
         paddingVertical: vw(5),
-        paddingLeft: vw(5),
         fontSize: 20,
         fontWeight: 'bold'
     },

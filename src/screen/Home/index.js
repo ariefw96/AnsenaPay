@@ -14,7 +14,7 @@ import { useSelector, connect } from 'react-redux'
 import { logout } from './../../utils/redux/action/authAction'
 import { useSocket } from './../../utils/context/SocketProvider'
 import PushNotification from 'react-native-push-notification'
-import {showNotification} from './../../notification'
+import { showNotification } from './../../notification'
 import { } from './../'
 
 
@@ -42,7 +42,14 @@ const Home = ({ navigation, logout }) => {
         });
     }, [])
 
-    const pressNotif = () =>{
+    useEffect(() =>{
+        socket.on('Notification', (message) =>{
+            showNotification(message.from, message.title, message.message, channel)
+        })
+        return () => socket.off('Notification')
+    },[])
+
+    const pressNotif = () => {
         showNotification('New Job Added', 'This is notification from React-Native', channel);
     }
 
@@ -127,6 +134,9 @@ const Home = ({ navigation, logout }) => {
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={styles.button}
+                            onPress={
+                                () => { navigation.navigate('ListUser') }
+                            }
                         >
                             <View
                                 style={{
@@ -136,7 +146,7 @@ const Home = ({ navigation, logout }) => {
                             >
                                 <Text
                                     style={styles.textMenu}
-                                >Menu 1</Text>
+                                >List User</Text>
                                 <Image
                                     source={{ uri: 'https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-right-01-512.png' }}
                                     style={styles.propImage}

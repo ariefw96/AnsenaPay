@@ -39,7 +39,7 @@ const Login = ({ navigation, login }) => {
         axios.post(API_URL + '/auth/login', data)
             .then(({ data }) => {
                 ToastAndroid.show('Login Sukses.', ToastAndroid.SHORT, ToastAndroid.CENTER);
-                login(data.content.id, data.content.email)
+                login(data.content.id, data.content.email,data.content.name)
                 navigation.replace('Home')
             }).catch(({ response }) => {
                 if (response.status == 404) {
@@ -189,8 +189,8 @@ const styles = StyleSheet.create({
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        login: (id, email) =>
-            dispatch(login(id, email)),
+        login: (id, email, name) =>
+            dispatch(login(id, email, name)),
     };
 };
 export default connect(null, mapDispatchToProps)(Login);

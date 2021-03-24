@@ -3,7 +3,8 @@ import * as actionTypes from '../actionTypes';
 const INITIAL_STATE = {
   isLogin: false,
   id: null,
-  email:null
+  email:null,
+  name:null
 };
 
 const authReducer = (state = INITIAL_STATE, action) => {
@@ -13,7 +14,8 @@ const authReducer = (state = INITIAL_STATE, action) => {
         ...state,
         isLogin: true,
         id: action.payload.id,
-        email: action.payload.email
+        email: action.payload.email,
+        name: action.payload.name
       };
     case actionTypes.LOGOUT:
       return {
@@ -21,6 +23,7 @@ const authReducer = (state = INITIAL_STATE, action) => {
         isLogin: false,
         id: null,
         email:null,
+        name:null
       };
 
     default:
